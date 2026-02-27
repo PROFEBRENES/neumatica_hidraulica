@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Neumática e hidráulica</title>
+<meta http-equiv="Content-Language" content="es">
+<meta name="keywords" content="Portaleso, Enseñanza, Secundaria, ESO, Bachiller, Oposiciones, Apuntes, Profesores, Alumnos, Recursos Educativos, Educación, Tecnología, Plástica, Electrónica, Mecánica, Electricidad, Neumática">
+<meta name="DESCRIPTION" content="Portal educativo para la Enseñanza Secundaria Obligatoria y Bachilleres, con diversos trabajos, exámenes, juegos, enlaces, chat y otros recursos útiles para alumnos y profesores.">
+<meta name="ROBOTS" content="INDEX, FOLLOW">
+<meta name="distribution" content="all, index, follow">
+<meta name="TITLE" content="Neumática e hidráulica">
+<meta name="REVISIT-AFTER" content="5 DAYS">
+<meta name="RATING" content="GENERAL">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ─── Reset & Base ─────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:          #f5f4f0;
+    --surface:     #ffffff;
+    --surface-alt: #f0efe9;
+    --accent:      #1a5276;
+    --accent2:     #148f77;
+    --accent-light:#d6eaf8;
+    --text:        #1c1c1e;
+    --text-muted:  #5a6a7a;
+    --border:      #d8d4c8;
+    --yellow-bg:   #fef9e7;
+    --yellow-border:#f1c40f;
+    --sidebar-w:   260px;
+    --radius:      8px;
+    --shadow:      0 2px 12px rgba(0,0,0,.07);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ─── Layout ─────────────────────────────────────────────────── */
+  #sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: var(--accent);
+    color: #e8f0f7;
+    overflow-y: auto;
+    z-index: 100;
+    padding: 0 0 40px;
+    box-shadow: 3px 0 20px rgba(0,0,0,.18);
+  }
+
+  #sidebar-header {
+    background: rgba(0,0,0,.25);
+    padding: 24px 20px 20px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  #sidebar-header .unit-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 6px;
+  }
+
+  #sidebar-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    line-height: 1.3;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  #sidebar-header .course-badge {
+    display: inline-block;
+    margin-top: 10px;
+    background: var(--accent2);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  #sidebar nav { padding: 16px 0; }
+
+  #sidebar nav a {
+    display: block;
+    padding: 7px 20px;
+    color: rgba(255,255,255,.75);
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 1.4;
+    transition: background .15s, color .15s;
+    border-left: 3px solid transparent;
+  }
+
+  #sidebar nav a:hover {
+    background: rgba(255,255,255,.1);
+    color: #fff;
+    border-left-color: var(--accent2);
+  }
+
+  #sidebar nav a.sub {
+    padding-left: 32px;
+    font-size: 12px;
+    color: rgba(255,255,255,.55);
+  }
+  #sidebar nav a.sub:hover { color: rgba(255,255,255,.9); }
+
+  #sidebar nav .nav-section {
+    padding: 12px 20px 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.35);
+  }
+
+  /* ─── Main Content ──────────────────────────────────────────── */
+  #main {
+    margin-left: var(--sidebar-w);
+    flex: 1;
+    padding: 0 0 80px;
+    max-width: 900px;
+  }
+
+  /* Hero */
+  #hero {
+    background: linear-gradient(135deg, var(--accent) 0%, #0d3349 100%);
+    padding: 60px 48px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.04);
+  }
+
+  #hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: 80px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(20,143,119,.3);
+  }
+
+  #hero .kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+    margin-bottom: 14px;
+  }
+
+  #hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    position: relative;
+    z-index: 1;
+  }
+
+  #hero .hero-meta {
+    margin-top: 16px;
+    font-size: 13px;
+    color: rgba(255,255,255,.6);
+    position: relative;
+    z-index: 1;
+  }
+
+  #hero .hero-meta a { color: rgba(255,255,255,.8); }
+
+  #hero .hero-img {
+    margin-top: 28px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    max-width: 500px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.4);
+    position: relative; z-index: 1;
+  }
+
+  #hero .hero-img img { width: 100%; display: block; }
+
+  /* ─── Sections ──────────────────────────────────────────────── */
+  .section {
+    padding: 48px 48px 36px;
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp .4s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section:last-child { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--accent2);
+    font-weight: 500;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.2;
+  }
+
+  .section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 28px 0 12px;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent2);
+  }
+
+  /* Back to index */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 28px;
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: .5px;
+    transition: color .15s;
+  }
+  .back-link:hover { color: var(--accent); }
+  .back-link::before { content: '↑'; font-size: 14px; }
+
+  /* ─── Index table ──────────────────────────────────────────── */
+  #toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin: 0 48px 0;
+    box-shadow: var(--shadow);
+  }
+
+  #toc h2 {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+
+  #toc ol {
+    list-style: none;
+    counter-reset: toc;
+  }
+
+  #toc > ol > li {
+    counter-increment: toc;
+    margin-bottom: 6px;
+  }
+
+  #toc a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 15px;
+    transition: color .15s;
+  }
+  #toc a:hover { color: var(--accent2); text-decoration: underline; }
+
+  #toc ol.sub-toc {
+    margin: 4px 0 6px 16px;
+    border-left: 2px solid var(--border);
+    padding-left: 14px;
+  }
+  #toc ol.sub-toc li { margin-bottom: 4px; }
+  #toc ol.sub-toc a { font-size: 13.5px; color: var(--text-muted); }
+
+  /* ─── Paragraphs & inline ──────────────────────────────────── */
+  .section p {
+    margin-bottom: 14px;
+    text-align: justify;
+    color: var(--text);
+  }
+
+  .section p b { color: var(--accent); }
+
+  .section ul, .section ol {
+    padding-left: 22px;
+    margin-bottom: 14px;
+  }
+
+  .section li { margin-bottom: 4px; }
+
+  /* Formula / center display */
+  .formula {
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 20px;
+    margin: 14px auto;
+    max-width: 420px;
+    font-size: 14px;
+    color: var(--accent);
+  }
+
+  /* Example boxes */
+  .example-box {
+    background: var(--yellow-bg);
+    border: 1px solid var(--yellow-border);
+    border-left: 4px solid var(--yellow-border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .example-box p { text-align: justify; }
+  .example-box img { display: block; margin: 10px auto; }
+
+  /* ─── Images ─────────────────────────────────────────────────── */
+  .img-block {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .img-block img {
+    max-width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    display: inline-block;
+  }
+
+  .img-caption {
+    display: block;
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    font-style: italic;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* ─── Symbol Tables ─────────────────────────────────────────── */
+  .symbol-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    font-size: 14px;
+  }
+
+  .symbol-table thead th {
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: .3px;
+  }
+
+  .symbol-table thead th:first-child {
+    width: 28%;
+    text-align: center;
+  }
+
+  .symbol-table .table-section-header td {
+    background: var(--surface-alt);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    border-top: 2px solid var(--border);
+    text-align: center;
+  }
+
+  .symbol-table tbody tr { background: var(--surface); }
+  .symbol-table tbody tr:nth-child(even) { background: #fafaf8; }
+
+  .symbol-table tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  .symbol-table tbody td:first-child { text-align: center; }
+  .symbol-table tbody td img { max-width: 120px; }
+
+  /* ─── Numbering / Norm tables ────────────────────────────────── */
+  .norm-table {
+    width: 85%;
+    margin: 16px auto;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .norm-table thead th {
+    background: var(--accent2);
+    color: #fff;
+    padding: 10px 14px;
+    font-weight: 600;
+  }
+
+  .norm-table tbody tr { background: var(--yellow-bg); }
+  .norm-table tbody tr:nth-child(even) { background: #fef5d4; }
+
+  .norm-table tbody td {
+    padding: 8px 14px;
+    border-bottom: 1px solid #e9d87a;
+  }
+
+  /* ─── Bulleted advantage lists ───────────────────────────────── */
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+
+  @media (max-width: 700px) {
+    .pros-cons { grid-template-columns: 1fr; }
+    #sidebar { display: none; }
+    #main { margin-left: 0; }
+  }
+
+  .pros-box, .cons-box {
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+
+  .pros-box {
+    background: #eafaf1;
+    border: 1px solid #a9dfbf;
+  }
+
+  .cons-box {
+    background: #fdedec;
+    border: 1px solid #f1948a;
+  }
+
+  .pros-box h4 { color: #1e8449; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .cons-box h4 { color: #c0392b; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+
+  .pros-box li, .cons-box li {
+    font-size: 13.5px;
+    margin-bottom: 5px;
+    list-style: none;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .pros-box li::before { content: '✓'; position: absolute; left: 0; color: #1e8449; font-weight: 700; }
+  .cons-box li::before { content: '✗'; position: absolute; left: 0; color: #c0392b; font-weight: 700; }
+
+  /* Activities */
+  .activities-list {
+    list-style: none;
+    counter-reset: act;
+  }
+
+  .activities-list > li {
+    counter-increment: act;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px 16px 54px;
+    margin-bottom: 12px;
+    position: relative;
+    box-shadow: var(--shadow);
+    font-size: 14.5px;
+  }
+
+  .activities-list > li::before {
+    content: counter(act);
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px; height: 26px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  /* Activity sub-tables */
+  .act-table {
+    width: 85%;
+    margin: 14px auto;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .act-table td {
+    border: 1px solid var(--border);
+    padding: 14px;
+    min-height: 80px;
+    vertical-align: top;
+    background: var(--surface);
+  }
+
+  .act-table td img { max-width: 120px; }
+
+  /* Author tag */
+  .author-tag {
+    text-align: right;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 12px 48px 0;
+  }
+
+  .author-tag a { color: var(--accent); text-decoration: none; }
+
+  /* Level diagram */
+  .level-img { max-width: 500px; }
+
+  sup { font-size: 70%; }
+  sub { font-size: 70%; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+<aside id="sidebar">
+  <div id="sidebar-header">
+    <div class="unit-label">Unidad didáctica</div>
+    <h2>Neumática e hidráulica</h2>
+    <span class="course-badge">4.º ESO</span>
+  </div>
+  <nav>
+    <div class="nav-section">Índice</div>
+    <a href="#introduccion">1. Introducción</a>
+    <a href="#historia">2. Historia</a>
+    <a href="#propiedades">3. Propiedades de los fluidos</a>
+    <a href="#airecomprimido" class="sub">3.1 El aire comprimido</a>
+    <a href="#fundamentos" class="sub">3.1.1 Fundamentos físicos</a>
+    <a href="#fluidoshidraulicos" class="sub">3.2 Fluidos hidráulicos</a>
+    <a href="#simbolos">4. Símbolos básicos</a>
+    <a href="#elementosbasicos">5. Elementos básicos</a>
+    <a href="#produccion" class="sub">5.1 Producción y distribución</a>
+    <a href="#actuadores" class="sub">5.2 Actuadores</a>
+    <a href="#valvulas" class="sub">5.3 Válvulas</a>
+    <a href="#diseno">6. Diseño de circuitos</a>
+    <a href="#aplicaciones">7. Aplicaciones básicas</a>
+    <a href="#simulacion">8. Simulación</a>
+    <a href="#actividades">9. Actividades</a>
+  </nav>
+</aside>
+
+<!-- ═══════════════════ MAIN ═══════════════════════ -->
+<main id="main">
+
+  <!-- HERO -->
+  <div id="hero">
+    <div class="kicker">Tecnología · 4.º ESO</div>
+    <h1>Neumática e hidráulica</h1>
+    <p class="hero-meta">Autor: <a href="http://www.portaleso.com/" target="_blank">Antonio Bueno</a> · <a href="http://www.portaleso.com/" target="_blank">portaleso.com</a></p>
+    <div class="hero-img">
+      <img src="./Neumática e hidráulica_files/circuito_3_doble_efecto_avance_retroceso_avance.jpg" alt="Circuito neumático de doble efecto">
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <div style="padding:40px 0 0;">
+    <a name="indice"></a>
+    <div id="toc">
+      <h2>Índice</h2>
+      <ol>
+        <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#historia">Historia</a></li>
+        <li>
+          <a href="#propiedades">Propiedades de los fluidos, principios básicos</a>
+          <ol class="sub-toc">
+            <li><a href="#airecomprimido">3.1 El aire comprimido</a>
+              <ol class="sub-toc">
+                <li><a href="#fundamentos">3.1.1 Fundamentos físicos</a></li>
+              </ol>
+            </li>
+            <li><a href="#fluidoshidraulicos">3.2 Fluidos hidráulicos</a></li>
+          </ol>
+        </li>
+        <li><a href="#simbolos">Símbolos básicos</a></li>
+        <li>
+          <a href="#elementosbasicos">Elementos básicos de un circuito neumático</a>
+          <ol class="sub-toc">
+            <li><a href="#produccion">5.1 Producción y distribución del aire comprimido</a></li>
+            <li><a href="#actuadores">5.2 Elementos de trabajo: actuadores</a></li>
+            <li><a href="#valvulas">5.3 Elementos de mando: válvulas</a></li>
+          </ol>
+        </li>
+        <li><a href="#diseno">Diseño de circuitos neumáticos</a></li>
+        <li><a href="#aplicaciones">Aplicaciones básicas</a></li>
+        <li><a href="#simulacion">Simulación de circuitos neumáticos</a></li>
+        <li><a href="#actividades">Actividades</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ── 1. INTRODUCCIÓN ─────────────────────────────────────── -->
+  <section id="introduccion" class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Introducción</h2>
+    </div>
+    <p>Los sistemas neumáticos e hidráulicos se encuentran difundidos por todos los ámbitos, riego de campos, instalaciones de agua potable y de desechos, en los vehículos autopropulsados utilizados en el transporte, aire acondicionado, etc. Sin embargo es en la industria donde nos interesa conocer cual ha sido su implantación.</p>
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 2. HISTORIA ─────────────────────────────────────────── -->
+  <section id="historia" class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Historia</h2>
+    </div>
+
+    <p>El fluido que utiliza la neumática es el aire comprimido, y es una de las formas de energía más antiguas utilizadas por el hombre.</p>
+    <p>Su utilización se remonta al Neolítico, cuando aparecieron los primeros fuelles de mano, para avivar el fuego de fundiciones o para airear minas de extracción de minerales.</p>
+
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/ballesta.jpg" alt="Catapulta de aire comprimido">
+      <span class="img-caption">Catapulta de aire comprimido</span>
+    </div>
+
+    <p>Hasta el siglo XVII, la utilización del aire a presión como energía, se realiza en algunas máquinas y mecanismos, como la catapulta de aire comprimido del griego KTESIBIOS, o la descripción en el siglo I de diversos mecanismos que son accionados por aire caliente.</p>
+    <p>A partir del siglo XVII, se comienza el estudio sistemático de los gases, y con ello, comienza el desarrollo tecnológico de las diferentes aplicaciones del aire comprimido.</p>
+
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/primera_maquina_neumatica.jpg" alt="Primera máquina neumática de Robert Boyle">
+      <span class="img-caption">Primera máquina neumática de Robert Boyle</span>
+    </div>
+
+    <p>En el siglo XVIII se construye el primer compresor alternativo, en el XIX, se utiliza como fuente energética para perforadoras de percusión, sistemas de correos, frenos de trenes, ascensores, etc.</p>
+    <p>A finales del siglo XIX, se deja de desarrollar debido a la competencia de otros tipos de energía (máquinas de vapor, motores y electricidad).</p>
+    <p>A finales de la Segunda Guerra Mundial, reaparece de nuevo la utilización a gran escala del aire comprimido como fuente de energía, debido, sobre todo, a las nuevas exigencias de automatización y racionalización del trabajo en las industrias.</p>
+    <p>Estando hoy en día ampliamente implantado en todo tipo de industrias.</p>
+
+    <p>Por otra parte el fluido que se utiliza en la hidráulica es el agua.</p>
+    <p>La utilización del agua data de muy antiguo. Se conocen obras riego que ya existían en la antigua Mesopotámica. En Nipur (Babilonia) existían colectores de agua negras, desde 3751 AC.</p>
+
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/energia_hidraulica_2.jpg" alt="Rueda hidráulica">
+      <span class="img-caption">Rueda hidráulica</span>
+    </div>
+
+    <p>En Egipto también se realizaron grandes obras de riego, 25 siglos AC.</p>
+    <p>El primer sistema de abastecimiento de agua estaba en Asiría año 691 AC.</p>
+    <p>El tratado sobre el cuerpo flotante de Arquímedes y algunos principios de Hidrostática datan de 250 AC.</p>
+    <p>La bomba de Pitón fue concebida 200 AC.</p>
+    <p>Los grandes acueductos romanos empiezan a construirse por todo el imperio a partir del 312 AC.</p>
+    <p>En el siglo XVI, la atención de los filósofos se centra en los proyectos de fuentes de agua monumentales. Contribuyen en este sentido Leonardo Da vinci, Galileo, Torricelles, y Bernoulli.</p>
+
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/hidraulica_ilustrada_p.jpg" alt="Hidráulica ilustrada">
+      <span class="img-caption">Hidráulica ilustrada</span>
+    </div>
+
+    <p>A Euler se deben las primeras ecuaciones para el movimiento de fluidos.</p>
+    <p>En el siglo XIX, con el desarrollo de tubos de hierro fundido, capaces de resistir presiones internas elevadas, la hidráulica tuvo un desarrollo rápido y acentuado.</p>
+    <p>Sin embargo hoy en día se utiliza el aceite en buena parte de aplicaciones industriales, ya que produce menor corrosión sobre los conductos y además se puede utilizar como refrigerante. Las aplicaciones son muy variadas.</p>
+    <p>En el transporte: excavadoras, tractores, grúas, en frenos, suspensiones, etc.</p>
+    <p>En la industria, para controlar, impulsar, posicionar, y mecanizar elementos propios de la línea de producción.</p>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 3. PROPIEDADES ─────────────────────────────────────── -->
+  <section id="propiedades" class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Propiedades de los fluidos, principios básicos</h2>
+    </div>
+
+    <p>Algunas magnitudes que definen a los fluidos son la presión, el caudal y la potencia.</p>
+
+    <p><b>Presión</b>: se define como la relación entre la fuerza ejercida sobre la superficie de un cuerpo.</p>
+    <div class="formula">Presión = Fuerza / Superficie</div>
+    <p>Las unidades que se utilizan para la presión son:</p>
+    <div class="formula"><b>1 atmósfera ≈ 1 bar = 1 kg/cm<sup>2</sup> = 10<sup>5</sup> pascal</b></div>
+
+    <p><b>Caudal</b>: es la cantidad de fluido que atraviesa la unidad de superficie en la unidad de tiempo.</p>
+    <div class="formula">Caudal = Volumen / tiempo</div>
+
+    <p><b>Potencia</b>: es la presión que ejercemos multiplicada por el caudal.</p>
+    <div class="formula">W(potencia) = Presión × Caudal</div>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 3.1 AIRE COMPRIMIDO ───────────────────────────────── -->
+  <section id="airecomprimido" class="section">
+    <div class="section-header">
+      <span class="section-num">3.1</span>
+      <h2>El aire comprimido</h2>
+    </div>
+
+    <p>El aire comprimido que se emplea en la industria procede del exterior. Se comprime hasta alcanzar una presión de unos 6 bares de presión, con respecto a la atmosférica (presión relativa).</p>
+    <div class="formula"><b>Presión absoluta = P. atmosférica + P. relativa</b></div>
+
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/presion_relativa.jpg" width="428" alt="Presión absoluta, relativa y atmosférica">
+      <span class="img-caption">Presión absoluta, relativa y atmosférica</span>
+    </div>
+
+    <p>Los manómetros indican el valor de presión relativa que estamos utilizando.</p>
+    <p>Para su estudio se considera como un gas perfecto.</p>
+    <p>Las ventajas que podemos destacar del aire comprimido son:</p>
+
+    <div class="pros-cons">
+      <div class="pros-box">
+        <h4>Ventajas</h4>
+        <ul>
+          <li>Es abundante (disponible de manera ilimitada).</li>
+          <li>Transportable (fácilmente transportable, además los conductos de retorno son innecesarios).</li>
+          <li>Se puede almacenar (permite el almacenamiento en depósitos).</li>
+          <li>Resistente a las variaciones de temperatura.</li>
+          <li>Es seguro, antideflagrante (no existe peligro de explosión ni incendio).</li>
+          <li>Limpio (importante para industrias químicas, alimentarias, textiles, etc.).</li>
+          <li>Los elementos son simples y de fácil comprensión.</li>
+          <li>La velocidad de trabajo es alta.</li>
+          <li>Velocidad y fuerzas son regulables de manera continua.</li>
+          <li>Aguanta bien las sobrecargas.</li>
+        </ul>
+      </div>
+      <div class="cons-box">
+        <h4>Desventajas</h4>
+        <ul>
+          <li>Necesita preparación antes de su utilización (eliminación de impurezas y humedad).</li>
+          <li>Debido a la compresibilidad, no permite velocidades de trabajo regulares y constantes.</li>
+          <li>Los esfuerzos de trabajo son limitados (de 20 a 30 000 N).</li>
+          <li>Es ruidoso, debido a los escapes de aire.</li>
+          <li>Es costoso, aunque compensado por el buen rendimiento y facilidad de implantación.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>La composición aproximada en volumen es:</p>
+    <p>N<sub>2</sub>⇒ 78,084%; O<sub>2</sub>⇒ 20,9476%; CO<sub>2</sub> ⇒ 0,0314%; Ne ⇒ 0,00181%; He ⇒ 0,000524%; CH<sub>4</sub> ⇒ 0,0002%; SH<sub>4</sub> ⇒ de 0 a 0,0001%; H<sub>2</sub> ⇒ 0,00005% y una serie de componentes minoritarios (Kr, Xe, O<sub>3</sub>) ⇒ 0,0002%.</p>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 3.1.1 FUNDAMENTOS FÍSICOS ─────────────────────────── -->
+  <section id="fundamentos" class="section">
+    <div class="section-header">
+      <span class="section-num">3.1.1</span>
+      <h2>Fundamentos físicos</h2>
+    </div>
+
+    <p>Las relaciones matemáticas utilizadas para presiones del aire inferior a los 12 bares, son las correspondientes a las de los gases perfectos.</p>
+    <p>La ley de los gases perfectos relaciona tres magnitudes, presión (P), volumen (V) y temperatura (T), mediante la siguiente fórmula:</p>
+    <div class="formula">P × V = m × R × T</div>
+
+    <p>Donde:</p>
+    <ul>
+      <li>P = presión (N/m²)</li>
+      <li>V = volumen especifico (m³/kg)</li>
+      <li>m = masa (kg)</li>
+      <li>R = constante del aire (R = 286,9 J/kg·ºK)</li>
+      <li>T = temperatura (ºK)</li>
+    </ul>
+
+    <p>Las tres magnitudes pueden variar.</p>
+
+    <h3>Temperatura constante — Ley de Boyle-Mariotte</h3>
+    <p>Si mantenemos constante la temperatura tenemos:</p>
+    <div class="formula">P × V = cte.</div>
+    <p>Luego en dos estados distintos tendremos:</p>
+    <div class="formula">P<sub>1</sub> × V<sub>1</sub> = P<sub>2</sub> × V<sub>2</sub></div>
+    <div class="formula">P<sub>1</sub> / P<sub>2</sub> = V<sub>2</sub> / V<sub>1</sub></div>
+    <p>De manera que cuando modificamos la presión de un recipiente que contiene aire comprimido, se ve modificado el volumen y a la inversa si modificamos su volumen se ve modificada la presión.</p>
+
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/pv_cte.jpg" width="473" alt="Ley de Boyle-Mariotte">
+      <span class="img-caption">Ley de Boyle-Mariotte</span>
+    </div>
+
+    <h3>Presión constante — Ley de Gay-Lussac</h3>
+    <p>Si ahora mantenemos la presión constante tenemos:</p>
+    <div class="formula">V/T = cte.</div>
+    <p>Luego en dos estados distintos tendremos:</p>
+    <div class="formula">V<sub>1</sub>/T<sub>1</sub> = V<sub>2</sub>/T<sub>2</sub></div>
+    <p>Cuando modificamos el volumen se ve modificada la temperatura y a la inversa una variación de la temperatura hace que varíe el volumen.</p>
+
+    <h3>Volumen constante — Ley de Charles</h3>
+    <p>Si ahora mantenemos el volumen constante tenemos:</p>
+    <div class="formula">P/T = cte.</div>
+    <p>Luego en dos estados distintos tendremos:</p>
+    <div class="formula">P<sub>1</sub>/T<sub>1</sub> = P<sub>2</sub>/T<sub>2</sub></div>
+    <p>En este caso cuando modificamos la presión se ve modificada la temperatura y a la inversa una variación de la temperatura hace que varíe la presión.</p>
+
+    <div class="example-box">
+      <p><b>Por ejemplo:</b></p>
+      <p>Si tenemos una jeringuilla que contiene 0,02 m<sup>3</sup> de aire comprimido a presión 1 atmósfera, ¿cuál será el volumen que ocupa dicho aire si sometemos dicha jeringuilla a una presión de 2 atmósferas?</p>
+      <img src="./Neumática e hidráulica_files/image016.gif" alt="Ejemplo ley Boyle">
+      <img src="./Neumática e hidráulica_files/image018.gif" alt="Resolución">
+    </div>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 3.2 FLUIDOS HIDRÁULICOS ───────────────────────────── -->
+  <section id="fluidoshidraulicos" class="section">
+    <div class="section-header">
+      <span class="section-num">3.2</span>
+      <h2>Fluidos hidráulicos</h2>
+    </div>
+
+    <p>Cuando el fluido que utilizamos no es el aire, si no un líquido que no se puede comprimir, agua, aceite, u otro. Los fundamentos físicos de los gases se cumplen considerando el volumen constante.</p>
+    <p>Una consecuencia directa de estos fundamentos es el <b>Principio de Pascal</b>, que dice así: Cuando se aplica presión a un fluido encerrado en un recipiente, esta presión se transmite instantáneamente y por igual en todas direcciones del fluido.</p>
+
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/pascal.jpg" alt="Principio de Pascal">
+      <span class="img-caption">Principio de Pascal</span>
+    </div>
+
+    <p>Como aplicación podemos ver como dos pistones unidos mediante un fluido encerrado, si le aplicamos una fuerza (F1) a uno de ellos, se transmite la presión hasta el otro, y produce una fuerza (F2) en el segundo. Las ecuaciones que rigen este principio son:</p>
+    <div class="formula">P = F<sub>1</sub>/S<sub>1</sub> &nbsp;y&nbsp; P = F<sub>2</sub>/S<sub>2</sub></div>
+    <p>Donde: P = presión, F = fuerza, S = superficie. Por lo que podemos poner:</p>
+    <div class="formula">F<sub>1</sub>/S<sub>1</sub> = F<sub>2</sub>/S<sub>2</sub></div>
+    <p>Otra forma de expresarlo es:</p>
+    <div class="formula">F<sub>1</sub> × S<sub>2</sub> = F<sub>2</sub> × S<sub>1</sub></div>
+    <p>Nos dice que en un pistón de superficie pequeña cuando aplicamos fuerza, esta se transmite al pistón de superficie grande amplificada o a la inversa.</p>
+
+    <div class="example-box">
+      <p><b>Por ejemplo:</b></p>
+      <p>Disponemos de dos pistones unidos por una tubería de secciones S<sub>1</sub>= 10 mm<sup>2</sup> y S<sub>2</sub> = 40 mm<sup>2</sup>. Si necesitamos levantar un objeto con una fuerza F<sub>2</sub>= 40 N sobre el pistón segundo. ¿Cuál será la fuerza F<sub>1</sub>, que debemos realizar sobre el pistón primero?</p>
+      <img src="./Neumática e hidráulica_files/image022.gif" alt="">
+      <img src="./Neumática e hidráulica_files/image024.gif" alt="">
+    </div>
+
+    <p>El fluido que normalmente se utiliza es aceite y los sistemas se llaman <b>oleohidráulicos</b>.</p>
+
+    <div class="pros-cons">
+      <div class="pros-box">
+        <h4>Ventajas oleohidráulica</h4>
+        <ul>
+          <li>Permite trabajar con elevados niveles de fuerza o momentos de giro.</li>
+          <li>El aceite empleado es fácilmente recuperable.</li>
+          <li>La velocidad de actuación es fácilmente controlable.</li>
+          <li>Las instalaciones son compactas.</li>
+          <li>Protección simple contra sobrecargas.</li>
+          <li>Pueden realizarse cambios rápidos de sentido.</li>
+        </ul>
+      </div>
+      <div class="cons-box">
+        <h4>Desventajas oleohidráulica</h4>
+        <ul>
+          <li>El fluido es más caro.</li>
+          <li>Se producen perdidas de carga.</li>
+          <li>Es necesario personal especializado para la manutención.</li>
+          <li>El fluido es muy sensible a la contaminación.</li>
+        </ul>
+      </div>
+    </div>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 4. SÍMBOLOS ───────────────────────────────────────── -->
+  <section id="simbolos" class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Símbolos básicos</h2>
+    </div>
+
+    <p>La norma UNE-101 149 86, se encarga de representar los símbolos que se deben utilizar en los esquemas neumáticos e hidráulicos.</p>
+    <p>La norma establece las reglas de representación de las válvulas así como su designación.</p>
+    <p>Los símbolos más utilizados son los siguientes:</p>
+
+    <!-- Conexiones -->
+    <table class="symbol-table">
+      <thead><tr><th>Símbolo</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr class="table-section-header"><td colspan="2">Conexiones</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image025.png" alt=""></td><td><b>Unión de tuberías.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image027.png" alt=""></td><td><b>Cruce de tuberías.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image029.png" alt=""></td><td><b>Fuente de presión</b>, hidráulica, neumática.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image031.png" alt=""></td><td><b>Escape sin rosca.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image033.png" alt=""></td><td><b>Escape con rosca.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image035.png" alt=""></td><td><b>Retorno a tanque.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image037.png" alt=""></td><td><b>Unidad operacional.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image039.png" alt=""></td><td><b>Unión mecánica</b>, varilla, leva, etc.</td></tr>
+
+        <tr class="table-section-header"><td colspan="2">Medición y mantenimiento</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image041.png" alt=""></td><td><b>Manómetro.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image043.png" alt=""></td><td><b>Termómetro.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image045.png" alt=""></td><td><b>Indicador óptico.</b> Indicador neumático.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image047.png" alt=""></td><td><b>Filtro.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image049.png" alt=""></td><td><b>Filtro con drenador de condensado</b>, vaciado manual.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image051.png" alt=""></td><td><b>Lubricador.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image053.png" alt=""></td><td><b>Unidad de mantenimiento</b>, filtro, regulador, lubricador. Gráfico simplificado.</td></tr>
+
+        <tr class="table-section-header"><td colspan="2">Bombas, compresores y motores</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image055.png" alt=""></td><td><b>Bomba hidráulica de flujo unidireccional.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image057.png" alt=""></td><td><b>Compresor para aire comprimido.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image059.png" alt=""></td><td><b>Depósito hidráulico.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image061.png" alt=""></td><td><b>Depósito neumático.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image063.png" alt=""></td><td><b>Motor neumático 1 sentido de giro.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image065.png" alt=""></td><td><b>Motor neumático 2 sentidos de giro.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image067.png" alt=""></td><td><b>Cilindro basculante 2 sentidos de giro.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image069.png" alt=""></td><td><b>Motor hidráulico 1 sentido de giro.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image071.png" alt=""></td><td><b>Motor hidráulico 2 sentidos de giro.</b></td></tr>
+
+        <tr class="table-section-header"><td colspan="2">Mecanismos (actuadores)</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image073.png" alt=""></td><td><b>Cilindro de simple efecto</b>, retorno por esfuerzos externos.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image075.png" alt=""></td><td><b>Cilindro de simple efecto</b>, retorno por muelle.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image077.png" alt=""></td><td><b>Cilindro de doble efecto</b>, vástago simple.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image079.png" alt=""></td><td><b>Cilindro de doble efecto</b>, doble vástago.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image081.png" alt=""></td><td><b>Pinza de apertura angular de simple efecto.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image083.png" alt=""></td><td><b>Pinza de apertura paralela de simple efecto.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image085.png" alt=""></td><td><b>Pinza de apertura angular de doble efecto.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image087.png" alt=""></td><td><b>Pinza de apertura paralela de doble efecto.</b></td></tr>
+
+        <tr class="table-section-header"><td colspan="2">Accionamientos</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image089.png" alt=""></td><td><b>Mando manual en general</b>, pulsador.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image091.png" alt=""></td><td><b>Botón pulsador, seta</b>, control manual.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image093.png" alt=""></td><td><b>Mando con bloqueo</b>, control manual.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image095.png" alt=""></td><td><b>Mando por palanca</b>, control manual.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image097.png" alt=""></td><td><b>Muelle</b>, control mecánico.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image099.png" alt=""></td><td><b>Rodillo palpador</b>, control mecánico.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image101.png" alt=""></td><td><b>Presurizado neumático.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image103.png" alt=""></td><td><b>Presurizado hidráulico.</b></td></tr>
+
+        <tr class="table-section-header"><td colspan="2">Válvulas direccionales</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image105.png" alt=""></td><td><b>Válvula 3/2 en posición normalmente cerrada.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image107.png" alt=""></td><td><b>Válvula 4/2.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image109.png" alt=""></td><td><b>Válvula 4/2.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image111.png" alt=""></td><td><b>Válvula 5/2.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image113.png" alt=""></td><td><b>Válvula 5/3 en posición normalmente cerrada.</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image115.png" alt=""></td><td><b>Válvula 5/3 en posición de escape.</b></td></tr>
+
+        <tr class="table-section-header"><td colspan="2">Válvulas de control</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image117.png" alt=""></td><td><b>Válvula de bloqueo</b> (antirretorno).</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image119.png" alt=""></td><td><b>Válvula O (OR)</b>. Selector.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image121.png" alt=""></td><td><b>Válvula de escape rápido</b>, Válvula antirretorno.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image123.png" alt=""></td><td><b>Válvula Y (AND).</b></td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image125.png" alt=""></td><td><b>Válvula estranguladora unidireccional.</b> Válvula antirretorno de regulación regulable en un sentido.</td></tr>
+        <tr><td><img src="./Neumática e hidráulica_files/image127.png" alt=""></td><td><b>Eyector de vacío.</b> Válvula de soplado de vacío.</td></tr>
+      </tbody>
+    </table>
+
+    <p>Un ejemplo de circuito completo con los símbolos normalizados es el siguiente.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/circuito1.jpg" alt="Circuito neumático">
+      <span class="img-caption">Circuito neumático</span>
+    </div>
+    <p>Contiene una toma de presión, unidad de mantenimiento, escape con rosca, válvula 3/2 activa de forma manual con bloqueo y retorno por muelle, cilindro de simple efecto con retorno por muelle y todos ellos unidos por tuberías.</p>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 5. ELEMENTOS BÁSICOS ──────────────────────────────── -->
+  <section id="elementosbasicos" class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Elementos básicos de un circuito neumático</h2>
+    </div>
+
+    <p>Los circuitos oleohidráulicos necesitan de un tanque donde retornar el fluido. Con el objeto de simplificar el estudio nos ceñiremos a los elementos neumáticos.</p>
+    <p>Los elementos básicos de un circuito neumático son:</p>
+    <ul>
+      <li><b>El generador de aire comprimido</b>, es el dispositivo que comprime el aire de la atmósfera hasta que alcanza la presión de funcionamiento de la instalación. Generalmente se asocia con un tanque donde se almacena el aire para su posterior utilización.</li>
+      <li><b>Las tuberías y los conductos</b>, a través de los que se canaliza el aire para que llegue a todos los elementos.</li>
+      <li><b>Los actuadores</b>, como cilindros y motores, que son los encargados de transformar la presión del aire en trabajo útil.</li>
+      <li><b>Los elementos de mando y control</b>, como las válvulas distribuidoras, se encargan de permitir o no el paso del aire según las condiciones preestablecidas.</li>
+    </ul>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 5.1 PRODUCCIÓN ────────────────────────────────────── -->
+  <section id="produccion" class="section">
+    <div class="section-header">
+      <span class="section-num">5.1</span>
+      <h2>Producción y distribución del aire comprimido</h2>
+    </div>
+
+    <p>Para la producción se utilizan los compresores. Estos se pueden clasificar en dos tipos, de émbolo o rotativos.</p>
+
+    <h3>Compresores de émbolo</h3>
+    <p>Son los más utilizados debido a su flexibilidad de funcionamiento.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/compresor_embolo.jpg" width="402" alt="Compresor de émbolo">
+      <span class="img-caption">Compresor de émbolo</span>
+    </div>
+    <p>El funcionamiento de este tipo de compresores es muy parecido al del motor de un automóvil. Un eje, mediante una biela y una manivela produce el movimiento alternativo de un pistón. Al bajar el pistón se introduce el aire. Cuando ha bajado totalmente se cierra la válvula de admisión y comienza a subir el pistón y con ello la compresión del aire. Cuando este aire se ha comprimido hasta el máximo, la válvula de escape se abre y sale el aire a presión.</p>
+    <p>Generalmente con una sola etapa se obtiene poca presión por lo que suelen concatenarse varias etapas para obtener mayores presiones.</p>
+
+    <h3>Compresores rotativos</h3>
+    <p>Consiguen aumentar la presión mediante el giro de un rotor. El aire se aspira y se comprime en la cámara de compresión gracias a la disminución del volumen que ocupa el aire. Los hay de paletas, de tornillo y el turbocompresor.</p>
+
+    <p><b>Compresor de paletas:</b></p>
+    <p>Son muy silenciosos y proporcionan un nivel de caudal prácticamente constante.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/compresor_paletas.jpg" width="504" alt="Compresor de paletas">
+      <span class="img-caption">Compresor de paletas</span>
+    </div>
+    <p>La compresión se efectúa como consecuencia de la disminución del volumen provocada por el giro de una excéntrica provista de paletas radiales extensibles que ajustan sobre el cuerpo del compresor.</p>
+
+    <p><b>Compresor de husillo o Roots:</b></p>
+    <p>Son caros aunque pueden suministrar aire a mayor presión que los anteriores.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/compresor_roots.jpg" width="500" alt="Compresor de husillo o Roots">
+      <span class="img-caption">Compresor de husillo o Roots</span>
+    </div>
+    <p>Emplea un doble husillo de forma que toma el aire de la zona de aspiración y lo comprime al reducirse el volumen en la cámara creada entre ellos y el cuerpo del compresor.</p>
+
+    <p><b>Compresor de tornillo:</b></p>
+    <p>Son caros, silenciosos y tienen un desgaste muy bajo.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/compresor_tornillo.jpg" width="470" alt="Compresor de tornillo">
+      <span class="img-caption">Compresor de tornillo</span>
+    </div>
+    <p>Se basa en el giro de dos tornillos helicoidales que comprimen el aire que ha entrado en su interior.</p>
+
+    <p><b>Turbocompresor:</b></p>
+    <p>Proporciona una presión reducida pero un caudal muy elevado. No suelen utilizarse en aplicaciones neumáticas industriales.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/turbocompresor.jpg" width="414" alt="Turbocompresor axial">
+      <span class="img-caption">Turbocompresor axial</span>
+    </div>
+    <p>Las álabes recogen el aire de entrada y lo impulsan hacia la salida aumentando su presión.</p>
+
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image057.png" alt="Símbolo del compresor">
+      <span class="img-caption">Símbolo del compresor</span>
+    </div>
+
+    <p>La mayor parte de los compresores suministran un caudal discontinuo de aire, de manera que se debe almacenar en un depósito. <b>El depósito</b> a demás sirve para evitar que los compresores estén en funcionamiento constantemente, incluso cuando no se necesita gran caudal de aire, también ayudan a enfriar el aire. Los depósitos generalmente disponen de manómetro que indica la presión interior, una válvula de seguridad que se dispara en caso de sobrepresiones y una espita para el desagüe de las condensaciones que se producen en el interior del depósito.</p>
+
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image061.png" alt="Símbolo del depósito">
+      <span class="img-caption">Símbolo del depósito</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image143.jpg" alt="Compresor con su depósito">
+      <span class="img-caption">Compresor con su depósito</span>
+    </div>
+
+    <p>Para transportar el aire es necesario utilizar conductores. Los conductores utilizados son tuberías metálicas o de polietileno de presión. El diámetro de las tuberías depende de las necesidades de caudal que requiere la instalación, teniendo en cuenta la caída de presión producida por las pérdidas y la longitud de las tuberías.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image146.jpg" alt="Tubo de polietileno de presión">
+      <span class="img-caption">Tubo de polietileno de presión</span>
+    </div>
+
+    <p>Generalmente entre el depósito y el circuito se suele incluir una unidad de mantenimiento que cuenta con un regulador de presión, un filtro y un lubricador de aire.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image053.png" alt="Símbolo de la unidad de mantenimiento">
+      <span class="img-caption">Símbolo de la unidad de mantenimiento</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image148.jpg" alt="Foto de la unidad de mantenimiento">
+      <span class="img-caption">Foto de la unidad de mantenimiento</span>
+    </div>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 5.2 ACTUADORES ────────────────────────────────────── -->
+  <section id="actuadores" class="section">
+    <div class="section-header">
+      <span class="section-num">5.2</span>
+      <h2>Elementos de trabajo: actuadores</h2>
+    </div>
+
+    <p>Los actuadores se pueden clasificar en dos tipos lineales y rotativos.</p>
+    <p>Entre los actuadores lineales destacan los cilindros.</p>
+    <p>Los cilindros se emplean cuando se desea un movimiento rectilíneo alternativo. Pueden utilizarse para desplazar objetos, para mover brazos de robots, etc. Los más conocidos son los de simple efecto y los de doble efecto.</p>
+
+    <h3>Cilindro de simple efecto</h3>
+    <p>Se trata de un tubo cilíndrico cerrado dentro del cual hay un émbolo unido a un vástago que se desplaza unido a él. Por un extremo hay un orificio para entrar o salir el aire y en el otro está albergado un muelle que facilita el retorno del vástago.</p>
+    <p>Este tipo de cilindro trabaja en un solo sentido, cuando el aire entra en él. El retroceso y desalojo del aire se produce por la fuerza del muelle que está albergado en el interior del cilindro.</p>
+    <p>La fuerza de empuje que realiza hacia fuera el vástago corresponde con la fórmula:</p>
+    <div class="formula">Fuerza = Presión del aire × Superficie del émbolo − Fuerza del muelle</div>
+
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/cilindro_simpleefecto_muelle.jpg" width="418" alt="Cilindro de simple efecto retorno por muelle">
+      <span class="img-caption">Cilindro de simple efecto retorno por muelle</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image075.png" alt="Símbolo del cilindro de simple efecto retorno por muelle">
+      <span class="img-caption">Símbolo del cilindro de simple efecto retorno por muelle</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image153.jpg" width="400" alt="Foto de un cilindro de simple efecto retorno por muelle">
+      <span class="img-caption">Foto de un cilindro de simple efecto retorno por muelle</span>
+    </div>
+
+    <h3>Cilindro de doble efecto</h3>
+    <p>Se trata de un tubo cilíndrico cerrado con un diseño muy parecido al cilindro de simple efecto, pero sin el muelle de retorno, el retorno se hace por medio de otra entrada de aire.</p>
+    <p>Este tipo de cilindro trabaja en los dos sentidos, cuando el aire entra en él produce fuerza y desaloja el aire que está en el otro compartimento. El retroceso y desalojo del aire se produce cuando el aire entra por el otro orificio.</p>
+
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/cilindro_dobleefecto.jpg" width="420" alt="Cilindro de doble efecto">
+      <span class="img-caption">Cilindro de doble efecto</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image077.png" alt="Símbolo del cilindro de doble efecto">
+      <span class="img-caption">Símbolo del cilindro de doble efecto</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image158.jpg" alt="Foto de un cilindro de doble efecto">
+      <span class="img-caption">Foto de un cilindro de doble efecto</span>
+    </div>
+
+    <p>La fuerza de empuje que realiza hacia fuera el vástago corresponde con la fórmula:</p>
+    <div class="formula">Fuerza = Presión del aire × Superficie del émbolo</div>
+    <p>La fuerza de empuje de retroceso que realiza hacia dentro el vástago corresponde con la fórmula:</p>
+    <div class="formula">Fuerza = Presión del aire × (Superficie del émbolo − Superficie del vástago)</div>
+    <p>De manera que la fuerza que podemos obtener de retorno es menor que la de empuje hacia fuera.</p>
+
+    <div class="example-box">
+      <p><b>Por ejemplo:</b></p>
+      <p>Disponemos de un cilindro de simple efecto al que le aplicamos una presión de 600.000 Pa, si la superficie que tiene el émbolo es de 10 cm<sup>2</sup> y la fuerza que realiza el muelle de retorno es de 20 N. ¿Cuál será la fuerza F1, que puede realizar el vástago?</p>
+      <img src="./Neumática e hidráulica_files/image161.gif" alt="">
+      <img src="./Neumática e hidráulica_files/image163.gif" alt="">
+      <p><b>Otro ejemplo:</b></p>
+      <p>¿Cuál será la fuerza máxima de empuje y de retroceso de un cilindro de doble efecto con las siguientes características, si le aplicamos en ambos casos una presión de 300.000 Pa?</p>
+      <p>Superficie del émbolo = 10 cm<sup>2</sup>. Superficie del vástago = 1 cm<sup>2</sup>.</p>
+      <img src="./Neumática e hidráulica_files/image165.gif" alt="">
+      <img src="./Neumática e hidráulica_files/image167.gif" alt="">
+    </div>
+
+    <h3>Motor de paletas</h3>
+    <p>Los actuadores rotativos se utilizan para hacer girar objetos o máquinas herramientas, motor de una taladradora, atornillar y destornillar, etc. También se utilizan los cilindros basculantes para producir movimientos circulares alternativos.</p>
+    <p>Genera movimiento rotativo continuo. El aire entra por una parte y hace que giren las paletas, la herramienta se encuentra sujeta sobre el eje de giro. Se trata del motor neumático más utilizado, puede dar una potencia de hasta 20 CV y velocidades desde 3000 a 25000 rpm.</p>
+
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/motor_paletas.jpg" width="477" alt="Motor de paletas">
+      <span class="img-caption">Motor de paletas</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image063.png" alt="Símbolo del motor de un sentido de giro">
+      <span class="img-caption">Símbolo del motor de un sentido de giro</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/motor_paletas_dos_direcciones.jpg" alt="Motor de paletas de dos sentidos de giro">
+      <span class="img-caption">Motor de paletas de dos sentidos de giro</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image065.png" alt="Símbolo del motor de dos sentidos de giro">
+      <span class="img-caption">Símbolo del motor de dos sentidos de giro</span>
+    </div>
+
+    <h3>Cilindro basculante</h3>
+    <p>Genera movimiento alternativo en una dirección u otra. Se trata de un cilindro con dos entradas de aire que hacen mover una paleta que contiene un eje de giro al cual está sujeto el objeto que queremos mover, por ejemplo un limpia parabrisas.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/cilindro_basculante.jpg" alt="Cilindro basculante">
+      <span class="img-caption">Cilindro basculante</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image067.png" alt="Símbolo del cilindro basculante">
+      <span class="img-caption">Símbolo del cilindro basculante</span>
+    </div>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 5.3 VÁLVULAS ──────────────────────────────────────── -->
+  <section id="valvulas" class="section">
+    <div class="section-header">
+      <span class="section-num">5.3</span>
+      <h2>Elementos de mando: válvulas</h2>
+    </div>
+
+    <p>Con el objeto de controlar la circulación del aire en una dirección u otra se necesitan elementos de mando y control. Algunos de estos se describen a continuación:</p>
+
+    <h3>Válvula 3/2</h3>
+    <p>Una de sus principales aplicaciones es permitir la circulación de aire hasta un cilindro de simple efecto, así como su evacuación cuando deja de estar activado.</p>
+    <p>A continuación se ve su constitución interna. Se trata de una válvula activa por un pulsador y retorno por un muelle. En estado de reposo, permite que el aire pase del terminal 2 hasta el 3 y que no pueda entrar por el 1. Cuando la activamos, el aire puede pasar del terminal 1 al 2 y no puede pasar por el 3.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/valvula_3_2_dibujo.jpg" width="500" alt="Válvula 3/2 normalmente cerrada">
+      <span class="img-caption">Válvula 3/2 normalmente cerrada</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image179.jpg" alt="Foto de una válvula 3/2 normalmente cerrada">
+      <span class="img-caption">Foto de una válvula 3/2 normalmente cerrada</span>
+    </div>
+
+    <h3>Válvula 5/2</h3>
+    <p>Una de sus principales aplicaciones es controlar los cilindros de doble efecto.</p>
+    <p>A continuación se ve su constitución interna. Se trata de una válvula activa por un pulsador y retorno por muelle. En estado de reposo, permite la circulación de aire entre los terminales 4 y 5, y entre 1 y 2, el terminal 3 está bloqueado. Cuando la activamos, permite la circulación de aire entre los terminales 1 y 4, y entre 2 y 3, ahora el terminal 5 se encuentra bloqueado.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/valvula_5_2_dibujo.jpg" alt="Válvula 5/2">
+      <span class="img-caption">Válvula 5/2</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image183.jpg" alt="Foto de una válvula 5/2 activa manual, retorno por muelle">
+      <span class="img-caption">Foto de una válvula 5/2 activa manual, retorno por muelle</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image185.jpg" alt="Foto de una válvula 5/2 activa y retorno por aire">
+      <span class="img-caption">Foto de una válvula 5/2 activa y retorno por aire</span>
+    </div>
+    <p>El modelo más utilizado de este tipo de válvula es el activo y retorno con aire.</p>
+
+    <h3>Válvula OR (O)</h3>
+    <p>Se trata de una válvula que implementa la función OR, esto es, cuando penetra el aire por cualquiera de sus entradas hace que este salga por la salida. Se utiliza para activar cilindros desde dos lugares distintos.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/valvula_or_dibujo.jpg" width="490" alt="Válvula OR">
+      <span class="img-caption">Válvula OR</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image119.png" alt="Símbolo de la válvula OR">
+      <span class="img-caption">Símbolo de la válvula OR</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image190.jpg" alt="Foto de una válvula OR">
+      <span class="img-caption">Foto de una válvula OR</span>
+    </div>
+
+    <h3>Válvula AND (Y)</h3>
+    <p>Se trata de una válvula que implementa la función AND, esto es, sólo permite pasar el aire a la salida cuando hay aire con presión por las dos entradas a la vez. Se utiliza para hacer circuitos de seguridad, el cilindro sólo se activará cuando existe presión en las dos entradas.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/valvula_and_dibujo.jpg" width="490" alt="Válvula AND">
+      <span class="img-caption">Válvula AND</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image123.png" alt="Símbolo de la válvula AND">
+      <span class="img-caption">Símbolo de la válvula AND</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image195.jpg" alt="Foto de una válvula AND">
+      <span class="img-caption">Foto de una válvula AND</span>
+    </div>
+
+    <h3>Válvula antirretorno</h3>
+    <p>Se encarga de permitir el paso del aire libremente cuando circular desde el terminal 2 al 1. Mientras que no permite circular el aire desde el terminal 1 al 2.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/valvula_antirretorno_dibujo.jpg" width="490" alt="Válvula antirretorno">
+      <span class="img-caption">Válvula antirretorno</span>
+    </div>
+
+    <h3>Válvula estranguladora unidireccional</h3>
+    <p>Se encarga de permitir el paso del aire libremente cuando circular desde el terminal 2 al 1. Mientras que estrangula el aire cuando circula desde el terminal 1 al 2. Se utiliza para hacer que los cilindros salgan o entren más lentamente.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/valvula_estranguladora_unidireccional_dibujo.jpg" width="462" alt="Válvula estranguladora unidireccional">
+      <span class="img-caption">Válvula estranguladora unidireccional</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/image201.jpg" alt="Foto de una válvula estranguladora unidireccional">
+      <span class="img-caption">Foto de una válvula estranguladora unidireccional</span>
+    </div>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 6. DISEÑO ─────────────────────────────────────────── -->
+  <section id="diseno" class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Diseño de circuitos neumáticos</h2>
+    </div>
+
+    <p>Cuando se representa un circuito neumático la colocación de cada elemento debe ocupar una posición en el esquema según realice una tarea u otra. El esquema se divide en varios niveles que nombrados de arriba a bajo son:</p>
+    <ul>
+      <li>Actuadores.</li>
+      <li>Elementos de control.</li>
+      <li>Funciones lógicas.</li>
+      <li>Emisores de señal, señales de control.</li>
+      <li>Toma de presión y unidad de mantenimiento.</li>
+    </ul>
+    <p>Un mismo elemento, puede hacer varias funciones y no existir todos los niveles.</p>
+
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/niveles_esquemas_neumaticos.jpg" width="500" class="level-img" alt="Niveles de los esquemas neumáticos">
+      <span class="img-caption">Niveles de los esquemas neumáticos</span>
+    </div>
+
+    <p>Por otra parte, cada elemento debe tener una numeración así como cada una de sus conexiones con arreglo a la siguiente norma:</p>
+
+    <table class="norm-table">
+      <thead><tr><th>Designación de componentes</th><th>Números</th></tr></thead>
+      <tbody>
+        <tr><td>Alimentación de energía</td><td><b>0.</b></td></tr>
+        <tr><td>Elementos de trabajo</td><td><b>1.0, 2.0, etc.</b></td></tr>
+        <tr><td>Elementos de control o mando</td><td><b>.1</b></td></tr>
+        <tr><td>Elementos ubicados entre el elemento de mando y el elemento de trabajo</td><td><b>.01, .02, etc.</b></td></tr>
+        <tr><td>Elementos que inciden en el movimiento de avance del cilindro</td><td><b>.2, .4, etc.</b></td></tr>
+        <tr><td>Elementos que inciden en el movimiento de retroceso del cilindro</td><td><b>.3, .5, etc.</b></td></tr>
+      </tbody>
+    </table>
+
+    <table class="norm-table">
+      <thead><tr><th>Designación de conexiones</th><th>Letras</th><th>Números</th></tr></thead>
+      <tbody>
+        <tr><td>Conexiones de trabajo</td><td><b>A, B, C ...</b></td><td><b>2, 4, 6 ...</b></td></tr>
+        <tr><td>Conexión de presión, alimentación de energía</td><td><b>P</b></td><td><b>1</b></td></tr>
+        <tr><td>Escapes, retornos</td><td><b>R, S, T ...</b></td><td><b>3, 5, 7 ...</b></td></tr>
+        <tr><td>Descarga</td><td><b>L</b></td><td>&nbsp;</td></tr>
+        <tr><td>Conexiones de mando</td><td><b>X, Y, Z ...</b></td><td><b>10, 12, 14 ...</b></td></tr>
+      </tbody>
+    </table>
+
+    <div class="example-box">
+      <p><b>Por ejemplo</b>: La representación completa de las válvulas puede ser:</p>
+      <table class="norm-table" style="width:90%;margin:12px auto;">
+        <tbody>
+          <tr><td style="text-align:center;"><img src="./Neumática e hidráulica_files/image206.jpg" alt=""></td><td>Válvula 3/2 pilotada por presión.</td></tr>
+          <tr><td style="text-align:center;"><img src="./Neumática e hidráulica_files/image208.jpg" alt=""></td><td>Válvula 5/2 pilotada por presión.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 7. APLICACIONES ───────────────────────────────────── -->
+  <section id="aplicaciones" class="section">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Aplicaciones básicas</h2>
+    </div>
+
+    <p>A continuación se representan algunas aplicaciones básicas que ayudarán a entender los circuitos neumáticos.</p>
+
+    <h3>1 — Control de un cilindro de simple efecto</h3>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_1_simple_efecto.jpg" alt="Control de un cilindro de simple efecto"><span class="img-caption">Control de un cilindro de simple efecto</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_1_simple_efecto_activo.jpg" alt="Cilindro de simple efecto activo"><span class="img-caption">Cilindro de simple efecto activo</span></div>
+    <p>Los elementos que componen este circuito son:</p>
+    <ul>
+      <li>0.1 — Unidad de mantenimiento.</li>
+      <li>1.1 — Válvula 3/2 con enclavamiento.</li>
+      <li>1.0 — Cilindro de simple efecto.</li>
+    </ul>
+    <p>En el estado de reposo, el aire sale de la unidad de mantenimiento hasta la válvula 3/2 sin superarla. Cuando activamos la válvula el aire llega hasta el cilindro de simple efecto y hace que se desplace el vástago. Cuando desenclavamos la válvula el muelle la hace retornar y el cilindro de simple efecto vuelve a su posición inicial expulsando el aire a través del orificio 3 de la válvula 3/2.</p>
+
+    <h3>2 — Pulsador con enclavamiento y cilindro de doble efecto</h3>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_2_doble_efecto.jpg" alt="Cilindro de doble efecto"><span class="img-caption">Cilindro de doble efecto</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_2_doble_efecto_activo.jpg" alt="Cilindro de doble efecto activo"><span class="img-caption">Cilindro de doble efecto activo</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_2_doble_efecto_retorno.jpg" alt="Cilindro de doble efecto retorno"><span class="img-caption">Cilindro de doble efecto retorno</span></div>
+    <p>Los elementos que componen este circuito son:</p>
+    <ul>
+      <li>0.1 — Unidad de mantenimiento.</li>
+      <li>1.1 — Válvula 5/2 con enclavamiento.</li>
+      <li>1.0 — Cilindro de doble efecto.</li>
+    </ul>
+    <p>En el estado de reposo, el aire sale de la unidad de mantenimiento hasta la válvula 5/2, entrando en el cilindro y haciendo que este, se encuentre retraído. Cuando se activa la válvula 5/2, el aire entra por la parte inferior del cilindro y hace que salga el vástago. Cuando se desactiva la válvula 5/2, el vástago vuelve a su estado de reposo impulsado por el aire.</p>
+
+    <h3>3 — Pulsador de avance y de retroceso, con cilindro de doble efecto</h3>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_3_doble_efecto_avance_retroceso.jpg" width="500" alt="Cilindro de doble efecto con pulsador de avance y de retroceso"><span class="img-caption">Cilindro de doble efecto con pulsador de avance y de retroceso</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_3_doble_efecto_avance_retroceso_avance.jpg" width="500" alt="En avance"><span class="img-caption">Cilindro de doble efecto con pulsador de avance y de retroceso, en avance</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_3_doble_efecto_avance_retroceso_retroceso.jpg" width="500" alt="En retroceso"><span class="img-caption">Cilindro de doble efecto con pulsador de avance y de retroceso, en retroceso</span></div>
+    <p>Los elementos que componen este circuito son:</p>
+    <ul>
+      <li>0.1 — Unidad de mantenimiento.</li>
+      <li>1.1 — Válvula 5/2 activa y retorno por presión.</li>
+      <li>1.2 — Válvula 3/2 con enclavamiento, para el avance.</li>
+      <li>1.3 — Válvula 3/2 con enclavamiento, para el retorno.</li>
+      <li>1.0 — Cilindro de doble efecto.</li>
+    </ul>
+    <p>En el estado de reposo, el cilindro se encuentra retraido, cuando se activa la válvula 1.2 el aire llega hasta la entrada 14 de la válvula 1.1 y la activa. Ésta conduce el aire hasta el cilindro hace avanzar, al vástago.</p>
+    <p>Dejamos de pulsar la válvula 1.2, y el cilindro permanece en este estado.</p>
+    <p>Cuando activamos la válvula 1.3, ésta conduce el aire hasta la entrada 12 de la válvula 1.1, y hace que el vástago se retraiga.</p>
+
+    <h3>4 — Utilización de la válvula estranguladora de caudal</h3>
+    <p>La válvula estranguladora unidireccional de caudal se utiliza para hacer que el aire abandone al cilindro lentamente, y así hacer que el retroceso o el avance del vástago se realice lentamente.</p>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_4_doble_efecto_avance_retroceso_regulado.jpg" alt="Cilindro de doble efecto con regulación de velocidad en el retorno"><span class="img-caption">Cilindro de doble efecto con regulación de velocidad en el retorno</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_4_doble_efecto_avance_retroceso_regulado_avance.jpg" alt="Avance"><span class="img-caption">Cilindro de doble efecto con regulación de velocidad en el retorno, avance</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_4_doble_efecto_avance_retroceso_regulado_retroceso.jpg" alt="Retroceso"><span class="img-caption">Cilindro de doble efecto con regulación de velocidad en el retorno, retroceso</span></div>
+    <p>Los elementos que componen este circuito son:</p>
+    <ul>
+      <li>0.1 — Unidad de mantenimiento.</li>
+      <li>1.1 — Válvula 5/2 activa y retorno por presión.</li>
+      <li>1.2 — Válvula 3/2 con enclavamiento, para el avance.</li>
+      <li>1.3 — Válvula 3/2 con enclavamiento, para el retorno.</li>
+      <li>1.0 — Cilindro de doble efecto.</li>
+      <li>1.01 — Válvula estranguladora de caudal.</li>
+    </ul>
+    <p>Cuando se activa la válvula 1.2, el aire llega hasta el cilindro por la válvula estranguladora 1.01, pero esta no opone ninguna resistencia al paso del aire y el vástago sale con total normalidad.</p>
+    <p>Cuando se pulsa la válvula 1.3 para que retorne, el aire que abandona al cilindro por la válvula 1.01, sale por la estrangulación y hace que el vástago retorne lentamente.</p>
+
+    <h3>5 — Utilización de un final de carrera</h3>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_5_doble_efecto_final_carrera.jpg" alt="Cilindro de doble efecto con retorno automático por final de carrera"><span class="img-caption">Cilindro de doble efecto con retorno automático por final de carrera</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_5_doble_efecto_final_carrera_retroceso.jpg" alt="Retornando"><span class="img-caption">Cilindro de doble efecto con retorno automático por final de carrera, retornando</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_5_doble_efecto_final_carrera_simulacion.jpg" alt="Simulación"><span class="img-caption">Cilindro de doble efecto con retorno automático por final de carrera, simulación</span></div>
+    <p>Los elementos que componen este circuito son:</p>
+    <ul>
+      <li>0.1 — Unidad de mantenimiento.</li>
+      <li>1.1 — Válvula 5/2 activa y retorno por presión.</li>
+      <li>1.2 — Válvula 3/2 con enclavamiento, para el avance.</li>
+      <li>1.3 — Válvula 3/2 con final de carrera, para el retorno.</li>
+      <li>1.0 — Cilindro de doble efecto.</li>
+    </ul>
+    <p>El funcionamiento es el mismo que la aplicación 3, pero el retorno se produce cuando el vástago llega hasta el final de carrera 1.3 de la válvula 1.3, de forma automática.</p>
+    <p>Con el simulador de PortalESO, se puede realizar la simulación colocando la válvula 1.3 junto al vástago del cilindro.</p>
+
+    <h3>6 — La puerta OR</h3>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_6_doble_efecto_or.jpg" width="500" alt="Cilindro de doble efecto con una puerta OR para el avance"><span class="img-caption">Cilindro de doble efecto con una puerta OR para el avance</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_6_doble_efecto_or_activo_1.jpg" width="500" alt="Activo 1"><span class="img-caption">Cilindro de doble efecto con una puerta OR para el avance, activo</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_6_doble_efecto_or_activo_2.jpg" width="500" alt="Activo 2"><span class="img-caption">Cilindro de doble efecto con una puerta OR para el avance, activo</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_6_doble_efecto_or_activo_3.jpg" width="500" alt="Activo 3"><span class="img-caption">Cilindro de doble efecto con una puerta OR para el avance, activo</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_6_doble_efecto_or_retorno.jpg" width="500" alt="Retorno"><span class="img-caption">Cilindro de doble efecto con una puerta OR para el avance, retorno</span></div>
+    <p>Los elementos que componen este circuito son:</p>
+    <ul>
+      <li>0.1 — Unidad de mantenimiento.</li>
+      <li>1.1 — Válvula 5/2 activa y retorno por presión.</li>
+      <li>1.2 — Válvula 3/2 con enclavamiento, para el avance.</li>
+      <li>1.4 — Válvula 3/2 con enclavamiento, para el avance.</li>
+      <li>1.3 — Válvula 3/2 con enclavamiento, para el retorno.</li>
+      <li>1.6 — Válvula OR.</li>
+      <li>1.0 — Cilindro de doble efecto.</li>
+    </ul>
+    <p>Cuando se pulsa la válvula 1.2 o 1.4, o las dos, se hace que avance el cilindro. Si no están pulsadas ninguna de las dos, y pulsamos la válvula 1.3, el cilindro retorna.</p>
+    <p>La válvula 1.6 implementa la función OR.</p>
+
+    <h3>7 — La puerta AND</h3>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_7_doble_efecto_and.jpg" width="500" alt="Cilindro de doble efecto con una puerta AND para el avance"><span class="img-caption">Cilindro de doble efecto con una puerta AND para el avance</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_7_doble_efecto_and_activo_1.jpg" width="500" alt="AND activo 1"><span class="img-caption">Cilindro de doble efecto con una puerta AND para el avance</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_7_doble_efecto_and_activo_2.jpg" width="500" alt="AND activo 2"><span class="img-caption">Cilindro de doble efecto con una puerta AND para el avance</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_7_doble_efecto_and_activo_3.jpg" width="500" alt="AND activo 3"><span class="img-caption">Cilindro de doble efecto con una puerta AND para el avance, activo</span></div>
+    <div class="img-block"><img src="./Neumática e hidráulica_files/circuito_7_doble_efecto_and_retorno.jpg" width="500" alt="AND retorno"><span class="img-caption">Cilindro de doble efecto con una puerta AND para el avance, retorno</span></div>
+    <p>Los elementos que componen este circuito son:</p>
+    <ul>
+      <li>0.1 — Unidad de mantenimiento.</li>
+      <li>1.1 — Válvula 5/2 activa y retorno por presión.</li>
+      <li>1.2 — Válvula 3/2 con enclavamiento, para el avance.</li>
+      <li>1.4 — Válvula 3/2 con enclavamiento, para el avance.</li>
+      <li>1.3 — Válvula 3/2 con enclavamiento, para el retorno.</li>
+      <li>1.6 — Válvula AND.</li>
+      <li>1.0 — Cilindro de doble efecto.</li>
+    </ul>
+    <p>Cuando se pulsa la válvula 1.2 y la 1.4 las dos a la vez, se hace que avance el cilindro. Si sólo está pulsada una o ninguna de las dos, el cilindro no avanza. Si en esta situación pulsamos la válvula 1.3, el cilindro retorna.</p>
+    <p>La válvula 1.6 implementa la función AND.</p>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 8. SIMULACIÓN ─────────────────────────────────────── -->
+  <section id="simulacion" class="section">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Simulación de circuitos neumáticos</h2>
+    </div>
+
+    <p>Los simuladores de neumática son muy útiles por que nos ayudan a comprender el funcionamiento de los circuitos neumáticos.</p>
+    <p>En la actualidad hay muchos en el mercado, pero su elevado coste los hace de difícil adquisición.</p>
+    <p>Un simulador comercial es el Automation Studio, el aspecto de este simulador es:</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/automation_studio.jpg" width="500" alt="Aspecto del simulador Automation Studio">
+      <span class="img-caption">Aspecto del simulador Automation Studio</span>
+    </div>
+    <p>Dispone de muchas posibilidades, tanto en el diseño como a la hora de la simulación. Su utilización excede el objetivo de esta unidad.</p>
+    <p>Existe otro simulador de libre utilización que permite simular pequeños circuitos neumáticos. Si el circuito es muy grande en ocasiones no funciona bien.</p>
+    <p>Se encuentra en la web educativa PortalESO (Portal Educativo) situada en la url <a href="http://www.portaleso.com/" target="_blank">www.portaleso.com</a>, en la asignatura de tecnología, sección neumática. Su aspecto es:</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/simulador_portaleso.jpg" width="500" alt="Aspecto del simulador de PortalESO">
+      <span class="img-caption">Aspecto del simulador de PortalESO (Portal Educativo)</span>
+    </div>
+    <p>Los distintos componentes se pueden desplazar hasta el área de trabajo, y allí con ayuda del ratón situándonos sobre el terminal, aparece un punto rojo indicando que puede salir el conducto para unir los terminales hasta completar el esquema.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/simulador_portaleso_2.jpg" width="500" alt="Montando el esquema en el simulador de PortalESO">
+      <span class="img-caption">Montando el esquema en el simulador de PortalESO</span>
+    </div>
+    <p>Una vez completado se puede ver u ocultar su numeración y realizar la simulación del circuito.</p>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/simulador_portaleso_3.jpg" width="500" alt="Numerando el esquema en el simulador de PortalESO">
+      <span class="img-caption">Numerando el esquema en el simulador de PortalESO</span>
+    </div>
+    <div class="img-block">
+      <img src="./Neumática e hidráulica_files/simulador_portaleso_4.jpg" width="500" alt="La simulación del esquema en el simulador de PortalESO">
+      <span class="img-caption">La simulación del esquema en el simulador de PortalESO</span>
+    </div>
+    <p>Para poder quitar o añadir nuevos elementos la simulación debe estar detenida. Y puede limpiarse todo el área de simulación o eliminar tanto conductos como componentes.</p>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+  <!-- ── 9. ACTIVIDADES ────────────────────────────────────── -->
+  <section id="actividades" class="section">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>Actividades</h2>
+    </div>
+
+    <ol class="activities-list">
+      <li>Un pistón cerrado que contiene aire, de volumen 30 mm<sup>3</sup> sometido a una presión de 300000 Pascales ¿Qué volumen tendrá si incrementamos su presión a 500000 Pascales?</li>
+      <li>En una prensa hidráulica, podemos realizar una fuerza máxima de 50 N, si la sección de los pistones son de 50 cm<sup>2</sup> y 200 cm<sup>2</sup>. ¿Cuál es la fuerza máxima que podemos obtener en el segundo pistón?</li>
+      <li>Calcula la fuerza que ejerce un vástago de un cilindro de simple efecto si la fuerza de retroceso del muelle es de 10 N, la sección del émbolo es de 7 cm<sup>2</sup>, y está sometido a una presión de 2 atm.</li>
+      <li>Calcula la fuerza de empuje y de retroceso de un cilindro de doble efecto con las siguientes características: Presión del aire = 3 atm, sección del émbolo = 7 cm<sup>2</sup>, sección del vástago = 0,8 cm<sup>2</sup>.</li>
+      <li>¿Cuál debe la presión mínima a la que debemos someter un cilindro de doble efecto para que levante una pieza de 10 Kg de masa? Datos del cilindro: Superficie del émbolo = 2 cm<sup>2</sup>, Superficie del vástago = 0,8 cm<sup>2</sup>.</li>
+      <li>
+        Dibuja los símbolos correspondientes en los cuadros con los nombres siguientes:
+        <table class="act-table" style="margin-top:12px;">
+          <tr>
+            <td>Cilindro de simple efecto<br><br><br><br></td>
+            <td>Válvula 3/2 normalmente activa<br><br><br><br></td>
+          </tr>
+          <tr>
+            <td>Unidad de mantenimiento<br><br><br><br></td>
+            <td>Mando manual general<br><br><br><br></td>
+          </tr>
+          <tr>
+            <td>Motor de doble sentido de giro<br><br><br><br></td>
+            <td>Depósito de aire<br><br><br><br></td>
+          </tr>
+        </table>
+      </li>
+      <li>
+        Pon el nombre de los símbolos siguientes:
+        <table class="act-table" style="margin-top:12px;">
+          <tr>
+            <td><img src="./Neumática e hidráulica_files/image029.png" alt=""></td>
+            <td><img src="./Neumática e hidráulica_files/image033.png" alt=""></td>
+          </tr>
+          <tr>
+            <td><img src="./Neumática e hidráulica_files/image125.png" width="150" alt=""></td>
+            <td><img src="./Neumática e hidráulica_files/image099.png" alt=""></td>
+          </tr>
+          <tr>
+            <td><img src="./Neumática e hidráulica_files/image077.png" width="150" alt=""></td>
+            <td><img src="./Neumática e hidráulica_files/image123.png" width="140" alt=""></td>
+          </tr>
+          <tr>
+            <td><img src="./Neumática e hidráulica_files/image097.png" alt=""></td>
+            <td><img src="./Neumática e hidráulica_files/image111.png" alt=""></td>
+          </tr>
+        </table>
+      </li>
+      <li>
+        Explica el funcionamiento del esquema neumático siguiente:
+        <div class="img-block" style="margin-top:12px;"><img src="./Neumática e hidráulica_files/actividad_8.jpg" alt="Actividad 8"></div>
+      </li>
+      <li>
+        Explica el funcionamiento del esquema siguiente y numéralo.
+        <div class="img-block" style="margin-top:12px;"><img src="./Neumática e hidráulica_files/actividad_9.jpg" alt="Actividad 9"></div>
+      </li>
+      <li>Dibuja un esquema que haga salir el vástago de un cilindro de simple efecto cuando se pulsa una válvula 3/2, que retorne gracias a un muelle y pon su numeración normalizada.</li>
+      <li>Dibuja un esquema en el que se active un cilindro de doble efecto dependiendo de que este pulse una válvula 5/2. Numera los símbolos y los terminales.</li>
+    </ol>
+
+    <a href="#indice" class="back-link">Regresar al índice</a>
+  </section>
+
+</main>
+</body>
+</html>
